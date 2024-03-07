@@ -1,0 +1,27 @@
+﻿@model UserToProductViewModel
+
+@{
+    ViewData["Title"] = "Products info";
+}
+
+<h1 class="text-danger">Products table</h1>
+<h2 class="text-danger">Request from @Model.Email</h2>
+
+<div class="text-center">
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <th>Id</th>
+        <th>Title</th>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.Products.Length; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model.Products[i].Title</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,26 @@
+﻿@model UserToProductViewModel
+
+@{
+    ViewData["Title"] = "Products info";
+}
+
+<h1 class="text-danger">Products forms</h1>
+<h2 class="text-danger">Fill products details for user @Model.Email</h2>
+
+<div class="text-center">
+    <form method="post" asp-controller="Products" asp-action="IndexPost">
+        <input type="hidden" asp-for="@Model.Age" />
+        <input type="hidden" asp-for="@Model.Email" />
+        @for (var i = 0; i < Model.Products.Length; i++)
+        {
+            <h1 class="display-4">Product #@Model.Products[i].Id</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail@(Model.Products[i].Id)">Product title</label>
+                <input type="text" asp-for="@Model.Products[i].Title" id="exampleInputEmail@(Model.Products[i].Id)" class="form-control" aria-describedby="emailHelp" placeholder="Enter product title">
+            </div>
+            <br />
+            <br />
+        }
+        <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+    </form>
+</div>

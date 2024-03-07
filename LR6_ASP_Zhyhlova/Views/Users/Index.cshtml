@@ -1,0 +1,29 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">User form</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="exampleInputEmail">Email address</label>
+            <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputAge">Age</label>
+            <input type="number" asp-for="Age" class="form-control" id="exampleInputAge" placeholder="Age" min="1" step="1" max="100">
+            <small id="ageHelper" style="visibility: visible;" class="form-text text-muted">User must be older then 16 years to buy pizza</small>
+        </div>
+        <div class="form-group" id="productsCountBlock" style="visibility: visible;">
+            <label for="exampleInputProductsCount">Products count</label>
+            <input type="number" asp-for="AmountOfProducts" class="form-control" id="exampleInputProductsCount" placeholder="Amount of products" min="1" step="1" max="100">
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+    </form>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/user.js"></script>
+}
